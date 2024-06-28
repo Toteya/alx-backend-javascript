@@ -32,6 +32,6 @@ export default class Pricing {
   }
 
   displayFullPrice() {
-    return `${this._amount} ${this._currency.name} ${this._currency.displayFullCurrency()}`;
+    return `${this._amount} ${this._currency.displayFullCurrency()}`;
   }
 }
