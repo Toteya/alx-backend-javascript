@@ -10,6 +10,5 @@ export default async function handleResponseFromAPI(promise) {
     .finally(() => {
       console.log('Got a response from the API');
     });
-  // console.log(`RESULT: ${result}`)
   return result;
 }
