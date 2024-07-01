@@ -7,6 +7,7 @@
 * [Async](https://intranet.alxswe.com/rltoken/_K0C7pgEjwaIzU9RpwCb8g)
 * [Throw / Try](https://intranet.alxswe.com/rltoken/UTjDgvKk5l892Xslh0vqcQ)
 * [Making Promises In JavaScript](https://dev.to/imiebogodson/making-promises-in-javascript-3h4f)
+* [FreeCodeCamp - How to use JS Promises](https://www.freecodecamp.org/news/javascript-promises-async-await-and-promise-methods/)
 
 ## Tasks:
 * Mandatory: 0 - 9
