@@ -1,12 +1,16 @@
 export default function cleanSet(set, startString) {
-  const length = startString.length;
+  let len = 0;
   let myString = '';
   let count = 0;
 
+  if (typeof (startString) === 'string') {
+    len = startString.length;
+  }
+
   for (const item of set) {
-    if (length && item.slice(0, length) === startString) {
+    if (len && item && item.slice(0, len) === startString) {
       if (count) { myString += '-'; }
-      myString += item.slice(length, item.length);
+      myString += item.slice(len, item.length);
     }
     count += 1;
   }
