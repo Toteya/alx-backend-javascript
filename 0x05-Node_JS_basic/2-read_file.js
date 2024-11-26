@@ -27,7 +27,7 @@ function countStudents(filePath) {
       fields[row[3]].push(row[0]);
     }
     function printStudents(field) {
-      let names = `Number of students in ${field} ${fields[field].length}. List:`;
+      let names = `Number of students in ${field}: ${fields[field].length}. List:`;
       for (const student of fields[field]) {
         names += (` ${student},`);
       }
