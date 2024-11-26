@@ -12,34 +12,32 @@ function countStudents(filePath) {
     terminal: false,
   });
   const data = [];
+  const fields = {};
   rl.on('line', (line) => {
     const row = line.split(',');
-    data.push(row);
+    if (row[3] !== 'field' || row[3] === undefined) {
+      fields[row[3]] = [];
+      data.push(row);
+    }
   });
   rl.on('close', () => {
-    const studentsTotal = data.length - 1;
-    const studentsCS = [];
-    const studentsSWE = [];
+    let studentsTotal = 0;
     for (const row of data) {
-      if (row[3] === 'CS') {
-        studentsCS.push(row[0]);
-      } else if (row[3] === 'SWE') {
-        studentsSWE.push(row[0]);
-      }
+      studentsTotal += 1;
+      fields[row[3]].push(row[0]);
     }
-    function printStudents(studentList) {
-      let names = ' List:';
-      for (const student of studentList) {
+    function printStudents(field) {
+      let names = `Number of students in ${field} ${fields[field].length}. List:`;
+      for (const student of fields[field]) {
         names += (` ${student},`);
       }
       names = names.slice(0, -1);
       console.log(names);
     }
     console.log(`Number of students: ${studentsTotal}`);
-    process.stdout.write(`Number of students in CS: ${studentsCS.length}.`);
-    printStudents(studentsCS);
-    process.stdout.write(`Number of students in SWE: ${studentsSWE.length}.`);
-    printStudents(studentsSWE);
+    for (const field of Object.keys(fields)) {
+      printStudents(field);
+    }
   });
 }
 
