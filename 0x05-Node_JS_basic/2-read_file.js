@@ -36,9 +36,9 @@ function countStudents(filePath) {
       console.log(names);
     }
     console.log(`Number of students: ${studentsTotal}`);
-    process.stdout.write(`Number of students in CS: ${studentsCS.length}`);
+    process.stdout.write(`Number of students in CS: ${studentsCS.length}.`);
     printStudents(studentsCS);
-    process.stdout.write(`Number of students in SWE: ${studentsSWE.length}`);
+    process.stdout.write(`Number of students in SWE: ${studentsSWE.length}.`);
     printStudents(studentsSWE);
   });
 }
