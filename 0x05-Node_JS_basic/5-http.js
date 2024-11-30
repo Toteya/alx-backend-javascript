@@ -13,12 +13,12 @@ const app = http.createServer((request, response) => {
       const consoleLogStdout = console.log;
       let output = '';
       console.log = (text) => {
-        output += `${text}\n`;
+        output += `\n${text}`;
       };
       countStudents(fileName)
         .then(() => {
           response.write('This is the list of our students');
-          output = output.slice(0, -1);
+          // output = output.slice(0, -1);
           console.log = consoleLogStdout;
           response.write(output);
           response.end();
