@@ -10,6 +10,7 @@ const app = http.createServer((request, response) => {
       break;
     }
     case '/students': {
+      response.write('This is the list of our students');
       const consoleLogStdout = console.log;
       let output = '';
       console.log = (text) => {
@@ -17,7 +18,6 @@ const app = http.createServer((request, response) => {
       };
       countStudents(fileName)
         .then(() => {
-          response.write('This is the list of our students');
           // output = output.slice(0, -1);
           console.log = consoleLogStdout;
           response.write(output);
@@ -25,7 +25,7 @@ const app = http.createServer((request, response) => {
         })
         .catch((error) => {
           console.log = consoleLogStdout;
-          response.write(`Error: ${error.message}`);
+          response.write(`\n${error.message}`);
           console.log(error);
           response.end();
         });
