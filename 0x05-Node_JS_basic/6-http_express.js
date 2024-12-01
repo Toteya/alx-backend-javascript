@@ -8,3 +8,5 @@ app.get('/', (request, response) => {
 });
 
 app.listen(port);
+
+module.exports = app;
