@@ -29,7 +29,7 @@ class StudentController {
     readDataBase(filePath)
       .then((students) => {
         const names = students[major].map((name) => ` ${name}`);
-        response.send(`List: ${names}`);
+        response.send(`List:${names}`);
       })
       .catch((error) => {
         console.log(error);
