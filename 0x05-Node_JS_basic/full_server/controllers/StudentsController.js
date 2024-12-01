@@ -1,4 +1,4 @@
-import readDataBase from './utils';
+import readDataBase from '../utils';
 
 const filePath = process.argv[2];
 
