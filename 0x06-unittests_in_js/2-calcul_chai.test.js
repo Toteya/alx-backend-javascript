@@ -1,5 +1,4 @@
-// const assert = require('assert');
-const calculateNumber = require('./1-calcul');
+const calculateNumber = require('./2-calcul');
 const chai = require('chai');
 const expect = chai.expect;
 
