@@ -6,11 +6,10 @@ describe('getPaymentTokenFromApi()', () => {
   it('should return a resolved promise', (done) => {
     const success = true;
     const exp_output = {data: 'Successful response from the API'}
-    const promise = getPaymentTokenFromApi(success)
-    done();
-    promise
+    getPaymentTokenFromApi(success)
       .then((result) => {
-        expect(result, exp_output);
+        expect(result).to.deep.equal(exp_output);
+        done();
       })
   });
 });
