@@ -15,6 +15,6 @@ describe('calculateNumber test', () => {
     assert.equal(calculateNumber('DIVIDE', 3.8, 0), 'Error');
   });
   it('check invalid operation type', () => {
-    assert.equal(calculateNumber('NO_TYPE', 3.8, 1), undefined);
+    assert.equal(calculateNumber('NO_TYPE', 3.8, 1), null);
   });
 });
