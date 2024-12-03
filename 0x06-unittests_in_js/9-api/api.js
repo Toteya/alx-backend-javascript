@@ -11,7 +11,7 @@ app.get('/cart/:id', (request, response) => {
   if (Number.isNaN(id)) {
     response.status(404).end();
   } else {
-    response.send(`Payment methods for cart :${id}`);
+    response.send(`Payment methods for cart ${id}`);
   }
 });
 
