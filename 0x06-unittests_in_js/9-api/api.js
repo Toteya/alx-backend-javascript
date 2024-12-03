@@ -8,11 +8,10 @@ app.get('/', (request, response) => {
 });
 app.get('/cart/:id', (request, response) => {
   const id = Number(request.params.id);
-  // console.log(`TYPE: ${typeof(id)}, VALUE: ${id}`);
   if (Number.isNaN(id)) {
     response.status(404).end();
   } else {
-    response.send(`Payment methods for cart: ${id}`);
+    response.send(`Payment methods for cart :${id}`);
   }
 });
 

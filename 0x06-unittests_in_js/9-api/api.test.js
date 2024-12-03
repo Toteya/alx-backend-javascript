@@ -1,7 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
 const request = require('request');
-const { response } = require('./api');
 
 describe('api', () => {
   it('test endpoint "/" correct output and status code', (done) => {
@@ -17,28 +16,32 @@ describe('api', () => {
       }
     });
   });
-  it('test endpoint: "/cart/:id"', () => {
-    id = 213; // Valid id
-    url = `http://localhost:7865/cart/:${id}`
+  it('test endpoint: "/cart/:id with valid id"', (done) => {
+    let id = 213; // Valid id
+    let url = `http://localhost:7865/cart/${id}`
     request.get(url, (error, response, body) => {
       if (error) {
         console.log(error);
         done();
       } else {
+        exp_output = `Payment methods for cart :${id}`; 
         expect(response.statusCode).to.equal(200)
-        expect(body).to.equal(`Payment methods for cart ${id}`);
+        expect(body).to.equal(exp_output);
+        done();
       }
     })
-    id = 'NotANumber'; // Invalid id
-    url = `http://localhost:7865/cart/:${id}`
+  });
+  it('test endpoint: "/cart/:id" with invalid id', (done) => {
+    id = 'NaN'; // Invalid id
+    url = `http://localhost:7865/cart/${id}`
     request.get(url, (error, response, body) => {
       if (error) {
         console.log(error);
-        expect(response.statusCode).to.equal(404);
         done();
       } else {
-        expect(response.statusCode).to.equal(200);
-        expect(body).to.equal(`Payment methods for cart ${id}`);
+        expect(response.statusCode).to.equal(404);
+        expect(!body).to.be.true;
+        done();
       }
     });
   });
